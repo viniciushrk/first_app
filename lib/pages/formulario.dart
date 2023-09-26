@@ -74,42 +74,51 @@ class _FormularinhoState extends State<Formularinho> {
   @override
   Widget build(BuildContext context) {
     
-    return SingleChildScrollView(
-      child: Container(
-        padding: EdgeInsets.all(25),
-        child: Column(children: [
-        TextField(
-          keyboardType: TextInputType.number,
-          decoration: const InputDecoration(labelText: "Celsius"),
-          onTap: (){
-            _fahrenheitController.text = "";
-            _kelvinController.text = "";
-          },
-          controller: _celsiusController,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Form"),
+      ),
+      body: Container(
+        child: Center(
+          child: SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.all(25),
+              child: Column(children: [
+                TextField(
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(labelText: "Celsius"),
+                  onTap: (){
+                    _fahrenheitController.text = "";
+                    _kelvinController.text = "";
+                  },
+                  controller: _celsiusController,
+                ),
+                SizedBox(height: _sizeBoxHeight),
+                TextField(
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(labelText: "Fahrenheit"),
+                  onTap: (){
+                    _celsiusController.text = "";
+                    _kelvinController.text = "";
+                  },
+                  controller: _fahrenheitController,
+                ),
+                SizedBox(height: _sizeBoxHeight),
+                TextField(
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(labelText: "Kelvin"),
+                  onTap: (){
+                    _fahrenheitController.text = "";
+                    _celsiusController.text = "";
+                  },
+                  controller: _kelvinController,
+                ),
+                SizedBox(height: _sizeBoxHeight),
+                ElevatedButton(onPressed: _Calcular, child: const Text("Converter"))
+              ]),
+            ),
+          ),
         ),
-        SizedBox(height: _sizeBoxHeight),
-        TextField(
-          keyboardType: TextInputType.number,
-          decoration: const InputDecoration(labelText: "Fahrenheit"),
-          onTap: (){
-            _celsiusController.text = "";
-            _kelvinController.text = "";
-          },
-          controller: _fahrenheitController,
-        ),
-        SizedBox(height: _sizeBoxHeight),
-        TextField(
-          keyboardType: TextInputType.number,
-          decoration: const InputDecoration(labelText: "Kelvin"),
-          onTap: (){
-            _fahrenheitController.text = "";
-            _celsiusController.text = "";
-          },
-          controller: _kelvinController,
-        ),
-        SizedBox(height: _sizeBoxHeight),
-        ElevatedButton(onPressed: _Calcular, child: const Text("Converter"))
-      ]),
       ),
     );
   }
