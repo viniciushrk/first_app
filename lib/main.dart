@@ -1,14 +1,11 @@
+import 'package:first_app/pages/index.dart';
+import 'package:first_app/route/RouteGenerator.dart';
 import 'package:flutter/material.dart';
-
-import 'formulario.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text("Temperaturinha"),
-      ),
-      body: Formularinho()
-    ),
+    initialRoute: "/index",
+    onGenerateRoute: RouteGenerator.generateRoute,
+    home: Index(),
   ));
 }
