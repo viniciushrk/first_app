@@ -1,3 +1,4 @@
+import 'package:first_app/Controller/CustomSearchDelegate.dart';
 import 'package:first_app/pages/Yugioh.dart';
 import 'package:first_app/pages/formulario.dart';
 import 'package:first_app/pages/surprise.dart';
@@ -12,14 +13,18 @@ class Index extends StatefulWidget {
 
 class _IndexState extends State<Index> {
   int _currentIndex = 0;
+  String pesquisa = "";
 
-  List _pages = [
-    Formularinho(),
-    Surprise(),
-    Yugioh(),
-  ];
+
   @override
   Widget build(BuildContext context) {
+
+    List _pages = [
+      Yugioh(pesquisa),
+      Formularinho(),
+      Surprise(),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.grey),
@@ -27,16 +32,13 @@ class _IndexState extends State<Index> {
         title: Image.asset("images/yugioh2.png", scale: 8),
         actions: [
           IconButton(
-            icon: Icon(Icons.videocam),
-            onPressed: (){},
-          ),
-          IconButton(
             icon: Icon(Icons.search),
-            onPressed: (){},
-          ),
-          IconButton(
-            icon: Icon(Icons.account_circle),
-            onPressed: (){},
+            onPressed: () async {
+              String? res = await showSearch(context: context, delegate: CustomSeachDelegate());
+              setState(() {
+                pesquisa = res!;
+              });
+            },
           ),
         ],
       ),

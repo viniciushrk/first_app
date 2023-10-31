@@ -2,18 +2,21 @@ import 'dart:ffi';
 
 import 'package:first_app/Dtos/CardGame.dart';
 import 'package:first_app/data/ApiYugioh.dart';
+import 'package:first_app/pages/DetailCard.dart';
 import 'package:flutter/material.dart';
 
 class Yugioh extends StatefulWidget {
-  const Yugioh({super.key});
+  // const Yugioh({super.key});
+  String pesquisa;
+  Yugioh(this.pesquisa);
 
   @override
   State<Yugioh> createState() => _YugiohState();
 }
 
 class _YugiohState extends State<Yugioh> {
-  _listarCards() async {
-    final api = await ApiYugioh().pesquisar('');
+  _listarCards([String? queryPesquisa = null]) async {
+    final api = await ApiYugioh().pesquisar(queryPesquisa);
     return api;
   }
 
@@ -38,9 +41,9 @@ class _YugiohState extends State<Yugioh> {
 
                       return GestureDetector(
                         onTap: (){
-                          // Navigator.push(context,
-                          //     MaterialPageRoute(builder: (context) => YoutPlay(video.id))
-                          // );
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => DetailCard(card.name, card.desc, card.archetype, card.image_url))
+                          );
                         },
                         child: Column(children: [
                           Container(child:

@@ -26,6 +26,7 @@ class CardGame {
       image_url: json["card_images"][0]["image_url"],
       image_url_cropped: json["card_images"][0]["image_url_cropped"],
     );
+
     return card;
   }
 }
