@@ -74,11 +74,7 @@ class _FormularinhoState extends State<Formularinho> {
   @override
   Widget build(BuildContext context) {
     
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Form"),
-      ),
-      body: Container(
+    return Container(
         child: Center(
           child: SingleChildScrollView(
             child: Container(
@@ -119,7 +115,6 @@ class _FormularinhoState extends State<Formularinho> {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }

@@ -34,11 +34,7 @@ class _SurpriseState extends State<Surprise> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Surpresinha"),
-        ),
-        body: Container(
+    return Container(
             padding: EdgeInsets.symmetric(horizontal: 18),
             child: Center(
               child: SingleChildScrollView(
@@ -65,7 +61,6 @@ class _SurpriseState extends State<Surprise> {
                 ),
               ),
             )
-        )
-    );
+        );
   }
 }
